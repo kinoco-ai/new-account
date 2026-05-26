@@ -1,0 +1,336 @@
+お気に入りのアプリの中から AI を直接お試しください。 … Gemini を使用して下書きを生成したり、コンテンツの質を高めたりすることができます。さらに、Gemini Pro では Google の次世代 AI にアクセスできます。
+1
+100%
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram Re-start Strategy & povo Manual</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;700&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* 基本設定 */
+        * { box-sizing: border-box; }
+        body { margin: 0; padding: 0; background-color: #e2e8f0; display: grid; gap: 40px; justify-items: center; padding: 40px 0; font-family: 'Noto Sans JP', sans-serif; }
+
+        .slide-container {
+            width: 1280px; height: 720px;
+            background-color: #F7F7F7;
+            color: #121212;
+            overflow: hidden;
+            position: relative;
+            display: flex; flex-direction: column;
+            padding: 60px;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            page-break-after: always;
+        }
+
+        /* カラー・パレット */
+        :root {
+            --primary: #2E4D3E;    /* 深いグリーン */
+            --secondary: #DAFF00;  /* ネオンライム */
+            --text-dark: #121212;
+            --white: #FFFFFF;
+        }
+
+        /* タイポグラフィ */
+        h1, h2, h3 { font-family: 'Urbanist', 'Noto Sans JP', sans-serif; margin: 0; }
+        .slide-title { font-size: 48px; font-weight: 700; color: var(--primary); margin-bottom: 40px; text-align: left; line-height: 1.2; }
+        .slide-title span { color: var(--secondary); background: var(--primary); padding: 0 15px; border-radius: 8px; }
+        p, li { font-size: 20px; line-height: 1.6; color: #444; margin-bottom: 15px;}
+        .cite { font-size: 14px; color: #888; }
+
+        /* 背景装飾 */
+        .bg-accent-circle { position: absolute; top: -100px; right: -100px; width: 400px; height: 400px; background: radial-gradient(circle, rgba(218, 255, 0, 0.2) 0%, transparent 70%); z-index: 0; }
+        .bottom-bar { position: absolute; bottom: 0; left: 0; width: 100%; height: 15px; background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%); }
+
+        /* レイアウト定義 */
+        .content-area { flex-grow: 1; display: flex; flex-direction: column; justify-content: center; z-index: 1; }
+
+        /* Title Slide Custom */
+        .title-slide { background-color: var(--primary); color: var(--white); justify-content: center; align-items: center; text-align: center; }
+        .title-slide h1 { font-size: 90px; line-height: 1; color: var(--secondary); margin-bottom: 20px; }
+        .title-slide .subtitle { font-size: 32px; font-weight: 400; color: var(--white); border-top: 3px solid var(--secondary); padding-top: 20px; margin-bottom: 30px;}
+
+        /* Grid Layouts */
+        .two-column { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+        .three-column { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+        
+        /* Cards */
+        .tile-card { background: var(--white); padding: 30px; border-radius: 20px; border: 1px solid #ddd; box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
+        .tile-card.highlight { background: var(--secondary); border: none; }
+        .tile-card h3 { font-size: 26px; margin-bottom: 15px; color: var(--primary); }
+
+        /* Icons */
+        .icon-item { text-align: center; padding: 30px; background: var(--white); border-radius: 20px; }
+        .icon-item i { font-size: 50px; color: var(--secondary); background: var(--primary); width: 100px; height: 100px; line-height: 100px; border-radius: 50%; margin-bottom: 20px; }
+
+        /* Alert Box */
+        .alert-box { background: #ffebee; border-left: 10px solid #d32f2f; padding: 20px 30px; border-radius: 0 10px 10px 0; margin-bottom: 20px;}
+        .alert-box h3 { color: #d32f2f; margin-bottom: 10px;}
+
+        /* Big Number */
+        .number-highlight { display: flex; align-items: center; gap: 40px; }
+        .big-number { font-size: 160px; font-weight: 700; color: var(--primary); line-height: 1; }
+        .big-number span { font-size: 50px; }
+
+        /* Timeline */
+        .timeline-container { display: flex; justify-content: space-between; position: relative; margin-top: 30px; }
+        .timeline-line { position: absolute; top: 40px; left: 0; width: 100%; height: 4px; background: #ddd; z-index: 0; }
+        .timeline-step { flex: 1; text-align: center; z-index: 1; padding: 0 10px;}
+        .step-num { width: 80px; height: 80px; background: var(--primary); color: var(--secondary); font-size: 30px; font-weight: 700; border-radius: 50%; line-height: 80px; margin: 0 auto 15px; border: 5px solid var(--white); }
+
+        /* Styled Bullets */
+        .styled-list { list-style: none; padding: 0; }
+        .styled-list li { padding-left: 40px; position: relative; margin-bottom: 20px; }
+        .styled-list li::before { content: '\f058'; font-family: 'Font Awesome 6 Free'; font-weight: 900; position: absolute; left: 0; color: var(--secondary); font-size: 24px; }
+        
+        @media print {
+            body { padding: 0; background-color: white; display: block; }
+            .slide-container { box-shadow: none; margin: 0; width: 100%; height: 100vh; border-radius: 0; }
+        }
+    </style>
+</head>
+<body>
+
+
+<div class="slide-container title-slide">
+    <div class="content-area">
+        <h1>SAFE RESTART<br>MANUAL</h1>
+        <p class="subtitle">垢バンから安全に復活！<br>
+        povoで「新しい電話番号」を最安で取得する方法&nbsp; </p>
+        <p style="color: #fff;">履歴を完全に切り離して安全に新アカウントを作成・運用する全手順</p>
+    </div>
+    <div class="bottom-bar"></div>
+</div>
+
+<div class="slide-container">
+    <div class="bg-accent-circle"></div>
+    <h2 class="slide-title">なぜ<span>「新しい番号」</span>が必要なのか？</h2>
+    <div class="content-area">
+        <div class="alert-box">
+            <h3>垢バンの連鎖を断ち切るため </h3>
+            <p style="color: #333;">Meta社のAIは過去の凍結情報を記録しています。今の番号を使い続けると、新アカウントも即座に特定され停止されるリスクがあります。</p>
+        </div>
+        <div class="tile-card highlight" style="margin-top: 20px;">
+            <h3>解決策：インスタ専用の盾を用意する</h3>
+            <p>過去の凍結履歴と無関係な「綺麗な番号」を、新アカウント開設のためだけに追加します。</p>
+        </div>
+    </div>
+    <div class="bottom-bar"></div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">圧倒的な安さで<span>リスク回避</span></h2>
+    <div class="content-area">
+        <div class="number-highlight">
+            <div class="big-number">40<span>円/月</span></div>
+            <div>
+                <h3 style="font-size: 30px; color: var(--primary);">実質平均の維持コスト </h3>
+                <p style="margin-top: 15px;">基本料0円プラン。認証に必要な「SMS受信」ができるクリーンな番号を、日本で最も安く維持できる最強の手段です。<span class="cite">&nbsp;</span></p>
+            </div>
+        </div>
+        <div class="two-column" style="margin-top: 40px;">
+            <div class="tile-card">
+                <h3>維持費のルール<span class="cite">&nbsp;</span></h3>
+                <p>180日以内に一度のトッピング購入が必要です。<span class="cite">&nbsp;</span> 警告メールが届いたらポチッと買うだけでOK！<span class="cite">&nbsp;</span></p>
+            </div>
+            <div class="tile-card">
+                <h3>最安トッピング例 <span class="cite">&nbsp;</span></h3>
+                <p>半年に1回、最安の「220円」を購入した場合の計算で、月額実質約40円となります。<span class="cite">&nbsp;</span></p>
+            </div>
+        </div>
+    </div>
+    <div class="bottom-bar"></div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">1台のスマホに、<span>2つの番号</span> </h2>
+    <div class="content-area">
+        <p style="text-align: center; font-size: 24px; font-weight: bold; margin-bottom: 40px;">今の契約はそのままでOK！今の電話番号もそのまま使えます。</p>
+        
+        <div class="two-column">
+            <div class="tile-card" style="border-left: 10px solid #888;">
+                <h3>番号①（今の番号）</h3>
+                <p>生活・仕事用。電話、LINE、いつもの連絡。これまで通り、何も変えなくてOK！</p>
+            </div>
+            <div class="tile-card highlight">
+                <h3>番号②（povoで追加）</h3>
+                <p>インスタ専用の新しい番号を増やすだけ。</p>
+            </div>
+        </div>
+    </div>
+    <div class="bottom-bar"></div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">申し込み前に<span>準備する3点</span></h2>
+    <div class="content-area">
+        <div class="three-column">
+            <div class="icon-item">
+                <i class="fa-solid fa-address-card"></i>
+                <h3>本人確認書類</h3>
+                <p>マイナンバーカードか運転免許証。</p>
+            </div>
+            <div class="icon-item">
+                <i class="fa-solid fa-credit-card"></i>
+                <h3>クレジットカード </h3>
+                <p>毎月の維持費の決済用。</p>
+            </div>
+            <div class="icon-item">
+                <i class="fa-solid fa-mobile-screen-button"></i>
+                <h3>povo2.0アプリ </h3>
+                <p>事前にスマホに入れておきましょう。</p>
+            </div>
+        </div>
+    </div>
+    <div class="bottom-bar"></div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">契約時の<span>【超重要】</span>2つの選択</h2>
+    <div class="content-area">
+        <div class="two-column">
+            <div class="alert-box" style="border-left-color: var(--primary);">
+                <h3 style="color: var(--primary);">① 必ず「通話＋データ」を選択 </h3>
+                <p>インスタ登録時の認証コード(SMS)を受け取るために必須です。<span class="cite">&nbsp;</span> 「データ専用」を選ぶとSMSが使えず登録できません！<span class="cite">&nbsp;</span></p>
+            </div>
+            <div class="tile-card highlight">
+                <h3>②「新規契約」を選択 <span class="cite">&nbsp;</span></h3>
+                <p>これを選ぶことで、今の携帯会社はそのままで、2つ目の「新しい番号」がスマホに追加されます。<span class="cite">&nbsp;</span></p>
+            </div>
+        </div>
+        
+        <h3 style="margin-top: 30px;">SIMのタイプ選択 </h3>
+        <ul class="styled-list">
+            <li><strong>eSIM (即日開通)：</strong>スマホにデータをDLするタイプ。郵送を待たずにその日のうちに始められます。</li>
+            <li><strong>SIMカード (郵送)：</strong>eSIM非対応機種の方はこちら。数日で自宅に届きます。</li>
+        </ul>
+    </div>
+    <div class="bottom-bar"></div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">メアドとSIMの<span>運用ルール</span></h2>
+    <div class="content-area">
+        <div class="two-column">
+            <div class="tile-card">
+                <h3>メアドの「超重要」ルール <span class="cite">&nbsp;</span></h3>
+                <ul class="styled-list">
+                  <li><strong>povo契約用：</strong>垢バンメアドでOK。Meta社のAIはここを覗けないので大丈夫です。<span class="cite">&nbsp;</span></li>
+                    <li><strong>インスタ登録用：</strong>絶対に新規作成！垢バンメアドだと即アウトです。<span class="cite">&nbsp;</span></li>
+                </ul>
+            </div>
+            <div class="tile-card highlight">
+                <h3>SIM入れ替えのタイミング <span class="cite">&nbsp;</span></h3>
+                <p><strong>インスタ開設の瞬間のみ！</strong><span class="cite">&nbsp;</span></p>
+                <p>認証コード(SMS)を受け取る時だけ使用し、登録が終われば元の生活用SIMに戻してOK。普段は元の回線で運用できます。<span class="cite">&nbsp;</span></p>
+            </div>
+        </div>
+    </div>
+    <div class="bottom-bar"></div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">成功のための<span>5ステップ</span> </h2>
+    <div class="content-area">
+      <p style="text-align: center; font-weight: bold; margin-bottom: 20px;">「まず番号を用意 ➔ 夜にリセット ➔ 朝に構築」の流れを徹底！ <span class="cite">[cite: 210]</span></p>
+        <div class="timeline-container">
+            <div class="timeline-line"></div>
+            <div class="timeline-step">
+                <div class="step-num" style="background: var(--secondary); color: var(--primary);">1</div>
+                <h3>準備 (昼) <span class="cite">[cite: 211]</span></h3>
+                <p>povoで新番号をネット契約 <span class="cite">[cite: 212]</span></p>
+            </div>
+            <div class="timeline-step">
+                <div class="step-num">2</div>
+                <h3>掃除 (夜) <span class="cite">[cite: 213]</span></h3>
+                <p>アプリ削除と再起動 <span class="cite">[cite: 214]</span></p>
+            </div>
+            <div class="timeline-step">
+                <div class="step-num">3</div>
+                <h3>断絶 (深夜) <span class="cite">[cite: 215]</span></h3>
+                <p>ルーター抜きIPを一晩リセット <span class="cite">[cite: 216]</span></p>
+            </div>
+            <div class="timeline-step">
+                <div class="step-num">4</div>
+                <h3>構築 (朝) <span class="cite">[cite: 217]</span></h3>
+                <p>新メアド等を作成 <span class="cite">[cite: 218]</span></p>
+            </div>
+            <div class="timeline-step">
+                <div class="step-num">5</div>
+                <h3>登録 (朝〜) <span class="cite">[cite: 219]</span></h3>
+                <p>新番号と新メアドで新規登録 <span class="cite">[cite: 220]</span></p>
+            </div>
+        </div>
+    </div>
+    <div class="bottom-bar"></div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">PC環境とネットの<span>隔離徹底</span></h2>
+    <div class="content-area">
+        <div class="two-column">
+            <div>
+                <h3>PC利用時の落とし穴 <span class="cite">&nbsp;</span></h3>
+              <p>PCはブラウザ履歴などで本人特定されやすい環境です。<span class="cite">&nbsp;</span></p>
+                <ul class="styled-list">
+                  <li><strong>Chromeプロフィールの追加：</strong>旧アカウントの痕跡を隔離した「新品ブラウザ」を作り、過去の履歴を一切引き継ぎません。<span class="cite">&nbsp;</span></li>
+                </ul>
+            </div>
+            <div class="tile-card highlight">
+                <h3>ネットの住所(IP)リセット<span class="cite">&nbsp; </span></h3>
+                <ul class="styled-list">
+                  <li><strong>ルーターの再起動：</strong>夜寝る前にコンセントを抜き、朝挿し直すことで住所(IP)が新しくなります。<span class="cite">&nbsp;</span></li>
+                    <li><strong>テザリングが最強：</strong>不安な間はスマホのテザリングでPCを繋ぐのが確実です。<span class="cite">&nbsp;</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="bottom-bar"></div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">画像データと<span>別垢の運用</span></h2>
+    <div class="content-area">
+        <div class="two-column">
+            <div>
+                <h3>画像データの「使い回し」注意<span class="cite">&nbsp;</span></h3>
+                <p>AIは画像の中身も見抜きます。古い画像をそのまま使うのは避け、「別人の投稿」に見える工夫をしましょう。<span class="cite">&nbsp;</span></p>
+                <ul class="styled-list">
+                  <li>ファイル名を新しく変える<span class="cite">&nbsp;</span></li>
+                    <li>左右反転や明るさを変える <span class="cite">&nbsp;</span></li>
+                    <li>別ソフトで上書き保存し直す<span class="cite">&nbsp;</span></li>
+                </ul>
+            </div>
+            <div class="tile-card">
+                <h3>別アカウント運用戦略<span class="cite">&nbsp;</span></h3>
+                <ul class="styled-list">
+                  <li><strong>旧・別アカウント：</strong>見る専用（ロム垢）。新垢と同じアプリ内での切り替え登録は厳禁！<span class="cite">&nbsp;</span></li>
+                    <li><strong>新・別アカウント：</strong>将来のサブ垢。新しく作り直し、同じアプリで運用しても安全です。<span class="cite">&nbsp;</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="bottom-bar"></div>
+</div>
+
+<div class="slide-container title-slide">
+    <div class="content-area">
+        <h2 style="font-size: 80px; color: var(--secondary);">Let's Re-start! <span class="cite">&nbsp;</span></h2>
+      <p style="color: white; margin-top: 30px; font-size: 26px;">「正しい手順」で<span class="cite">&nbsp;</span><br>スマホもPCも、真っさらな状態でスタートしましょう。<span class="cite">&nbsp;</span></p>
+      <p style="color: white; margin-top: 15px; font-size: 22px;">安全な新しい電話番号を手に入れ、新しいアカウントを育てていきましょう。<br>あなたの挑戦を応援しています。<span class="cite">&nbsp;</span></p>
+        <div style="margin-top: 50px; font-weight: 700; color: var(--secondary); font-size: 20px;">
+            Instagram Recovery Strategy 2026
+        </div>
+    </div>
+    <div class="bottom-bar"></div>
+</div>
+
+</body>
+</html>
+
